@@ -4,11 +4,33 @@
  ERI_sloux_derina:0 "Sloux Derina"
 
 ### FOCUSES ###
-## Opening
 ERI_the_rise_of_eridau_authority:0 "Consolidating Power"
 ERI_the_rise_of_eridau_authority_desc:0 "The Eriadu Authority focuses on consolidating its rule and strength under Admiral Sander Delvardus. Through political maneuvering, military expansion, and strategic alliances, the faction aims to solidify its position and establish a stable foundation for future endeavors."
 ERI_the_mistress:0 "The Mistress"
 ERI_the_mistress_desc:0 "Desc"
+ERI_remind_the_people:0 "Remind the People"
+ERI_remind_the_people_desc:0 "Desc"
+
+ERI_solidifying_support:0 "Solidifying Support"
+ERI_solidifying_support_desc:0 "Desc"
+ERI_realization:0 "Realization"
+ERI_realization_desc:0 "Desc"
+
+ERI_a_new_chapter:0 "A New Chapter"
+ERI_a_new_chapter_desc:0 "Desc"
+
+ERI_desperate_research:0 "Desperate Research"
+ERI_desperate_research_desc:0 "Desc"
+ERI_experimental_treatments:0 "Experimental Treatments"
+ERI_experimental_treatments_desc:0 "Desc"
+ERI_planning_for_the_future:0 "Planning for the Future"
+ERI_planning_for_the_future_desc:0 "Desc"
+ERI_sacrificing_the_authority:0 "Sacricing the Authority"
+ERI_sacrificing_the_authority_desc:0 "Desc"
+ERI_a_cure:0 "A Cure?"
+ERI_a_cure_desc:0 "Desc"
+
+
 
 # Events
 eridau.0.t:0 "§YThe Rise of the Eriadu Authority"

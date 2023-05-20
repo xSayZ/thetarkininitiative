@@ -372,7 +372,7 @@
 		}
 	}
 	focus = {
-		id = ERI_a_cure_?
+		id = ERI_a_cure
 		desc = ERI_second_branch_desc
 	    icon = GFX_WIP_focus
 		cost = 1
@@ -384,7 +384,6 @@
 		prerequisite = { focus = ERI_planning_for_the_future }
 		
 	    mutually_exclusive = {
-		   focus = ERI_realization
 	    }		
 
 		completion_reward = {
@@ -408,16 +407,14 @@
 			x = 17
 			y = 4	
 	
-			prerequisite = {
-				focus = ERI_the_mistress
-				focus = ERI_first_branch_focus_one
-				focus = ERI_experimental_treatments
-			}		
+			prerequisite = { focus = ERI_the_mistress }
+			prerequisite = { focus = ERI_first_branch_focus_one}	
+			prerequisite = { focus = ERI_experimental_treatments }
 	
 			completion_reward = {
 			   custom_effect_tooltip = eridau_the_mistress_tooltip
 			   ERI = {
-				   
+				   # Give trait Supreme General to Delvardus
 			   }
 			}	
 	
@@ -427,32 +424,192 @@
 		}
 	
 		###########################
-		## First Military Branch ##
+		##    Military Branch    ##
 		###########################
 
-		focus = {
- 		id = ERI_military_branch
- 		desc = ERI_second_branch_desc
+	focus = {
+ 		id = ERI_choose_our_strength
+ 		desc = ERI_choose_our_strength_desc
 		icon = GFX_WIP_focus
  		cost = 1
 
- 		x = 30
+ 		x = 31
  		y = 2
 
  		prerequisite = {
  			focus = ERI_the_mistress
- 		}		
+ 		}	
 
  		completion_reward = {
 			custom_effect_tooltip = eridau_the_mistress_tooltip
 			ERI = {
-				
 			}
  		}		
  		ai_will_do = {
  			factor = 1
  		}
  	}
+
+		############################
+		## Ground Military Branch ##
+		############################
+
+	 focus = {
+		id = ERI_fear_ground
+		desc = ERI_fear_ground_desc
+	    icon = GFX_WIP_focus
+		cost = 1
+
+		x = 27
+		y = 3
+
+		prerequisite = {
+			focus = ERI_choose_our_strength
+		}
+
+		mutually_exclusive = {
+			focus = ERI_fear_above
+		}	
+
+		completion_reward = {
+		   ERI = {
+			set_country_flag = fear_ground_ERI
+ 			add_ideas = fear_ground_ERI
+		   }
+		}		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	focus = {
+		id = ERI_hardened_spirit
+		desc = ERI_hardened_spirit_desc
+	    icon = GFX_WIP_focus
+		cost = 1
+
+		x = 26
+		y = 4
+
+		prerequisite = {
+			focus = ERI_fear_ground
+		}
+
+		completion_reward = {
+		   ERI = {
+ 			add_ideas = hardend_spirit_ERI
+		   }
+		}		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	focus = {
+		id = ERI_a_fight_on_our_turf
+		desc = ERI_a_fight_on_our_turf_desc
+	    icon = GFX_WIP_focus
+		cost = 1
+
+		x = 26
+		y = 5
+
+		prerequisite = {
+			focus = ERI_hardened_spirit
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = eridau_fight_on_our_turf_tooltip
+		   ERI = {
+			activate_mission = fight_on_our_turf
+		   }
+		}		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	focus = {
+ 		id =  ERI_a_live_gift ## imperial staff addition, requires spending of imperial influence
+ 		icon = GFX_WIP_focus
+ 		cost = 5
+ 		x = 28
+ 		y = 4
+ 		prerequisite = {
+ 			focus = ERI_fear_ground
+ 		}		
+ 		available_if_capitulated = yes		
+ 		completion_reward = {
+ 			subtract_from_variable = {legitimacy_emp = 5}
+ 			ERI = {
+ 				add_corps_commander_role = {
+ 				  character = ERI_sander_delvardus
+ 				  skill = 4
+ 				  attack_skill = 2
+ 				  defense_skill = 3
+ 				  planning_skill = 3
+ 				  logistics_skill = 5
+ 				}
+ 			}
+ 		}		
+ 		ai_will_do = {
+ 			factor = 1
+ 		}
+ 	}
+	 focus = {
+		id =  ERI_overwhelming_firepower ## Unlocks part of the doctrine
+		icon = GFX_WIP_focus
+		cost = 5
+		x = 28
+		y = 5
+
+		prerequisite = {
+			focus = ERI_a_live_gift
+		}		
+
+		available_if_capitulated = yes		
+		completion_reward = {
+			ERI = {
+				set_country_flag = tarkin_doctrine_2
+			}
+		}		
+		ai_will_do = {
+			factor = 1 
+		}
+	}
+
+		############################
+		##  Navy Military Branch  ##
+		############################
+
+		focus = {
+			id = ERI_fear_above
+			desc = ERI_fear_ground_desc
+			icon = GFX_WIP_focus
+			cost = 1
+	
+			x = 35
+			y = 3
+	
+			prerequisite = {
+				focus = ERI_choose_our_strength
+			}
+	
+			mutually_exclusive = {
+				focus = ERI_fear_ground
+			}	
+	
+			completion_reward = {
+			   ERI = {
+				set_country_flag = fear_above_ERI
+				 add_ideas = fear_above_ERI
+			   }
+			}		
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
 
 	 focus = {
 		id = ERI_the_rivals_gambit
@@ -471,7 +628,7 @@
 
 		prerequisite = {
 			focus = ERI_first_branch_focus_four
-			focus = ERI_a_cure_?
+			focus = ERI_a_cure
 		}
 
 		completion_reward = {
@@ -534,8 +691,14 @@
 
 		prerequisite = {
 			focus = ERI_the_rivals_gambit
+			
 		}
 
+		available = {
+			NOT = {
+				has_completed_focus = ERI_first_branch_focus_four
+			}
+		}
 		
 		allow_branch = {
 			has_completed_focus = ERI_the_rivals_gambit 
